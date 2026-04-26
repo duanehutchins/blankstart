@@ -43,5 +43,5 @@ export function downloadLeadsCsv(leads: Lead[]): void {
   anchor.href = url;
   anchor.download = `xerge-leads-${timestampForFile()}.csv`;
   anchor.click();
-  URL.revokeObjectURL(url);
+  setTimeout(() => URL.revokeObjectURL(url), 0);
 }

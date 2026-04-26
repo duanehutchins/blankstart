@@ -24,5 +24,5 @@ export function downloadLeadsJson(leads: Lead[]): void {
   anchor.href = url;
   anchor.download = `xerge-leads-${timestampForFile()}.json`;
   anchor.click();
-  URL.revokeObjectURL(url);
+  setTimeout(() => URL.revokeObjectURL(url), 0);
 }
