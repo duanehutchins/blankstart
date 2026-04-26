@@ -1,0 +1,3 @@
+projects:
+  - id: xerge-expo-demo
+    file: .vibe/registry/xerge-expo-demo.yaml

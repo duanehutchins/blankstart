@@ -42,3 +42,7 @@ Generate CSV and JSON entirely client-side with timestamped filenames and metada
 - LocalStorage blocked by browser policy
 - Operator forgets to export before clearing
 - Booth interruptions during user flow
+
+
+## Wayfinder compliance
+Run `npm run wayfinder:check` to validate signposts, index fields, ADR sections, and .vibe artifacts.

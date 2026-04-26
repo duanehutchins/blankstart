@@ -1,21 +1,43 @@
 repo:
   name: xerge-ai-cto-demo
-  purpose: Offline-first expo demo for Xerge lead capture and education
-  primary_stack:
-    - React
-    - TypeScript
-    - Vite
-    - Tailwind CSS
-  key_paths:
-    - path: src/
-      description: Application source code
-    - path: src/data/
-      description: Quiz questions, personas, and copy
-    - path: src/lib/
-      description: Storage, export, validation, and utility logic
-    - path: src/features/quiz/
-      description: Deterministic quiz scoring
-    - path: docs/adrs/
-      description: Architecture decision records
-    - path: QA_CHECKLIST.md
-      description: Manual verification matrix
+  purpose: Offline-first expo quiz demo for Xerge lead capture and education
+  primary_stack: [React, TypeScript, Vite, TailwindCSS]
+  required_signposts:
+    - README.md
+    - AGENTS.md
+    - src/README.md
+    - src/AGENTS.md
+    - docs/README.md
+    - docs/AGENTS.md
+    - .vibe/README.md
+  modules:
+    - name: app-source
+      path: src/
+      readme: src/README.md
+      agents: src/AGENTS.md
+      tags: [runtime, ui, quiz, storage, export]
+      signposts_required: true
+      boundary_notes: Product behavior lives here; avoid docs/process logic.
+    - name: documentation
+      path: docs/
+      readme: docs/README.md
+      agents: docs/AGENTS.md
+      tags: [docs, adr, runbook]
+      signposts_required: true
+      boundary_notes: ADRs are canonical in docs/adr/.
+    - name: operational-layer
+      path: .vibe/
+      readme: .vibe/README.md
+      agents: null
+      tags: [wayfinder, plan, packet, compliance]
+      signposts_required: true
+      boundary_notes: Contains machine-readable operational artifacts.
+  adr_directory: docs/adr/
+  vibe_project_path: .vibe/projects/xerge-expo-demo/
+  validation_commands:
+    - npm ci
+    - npm run typecheck
+    - npm run test
+    - npm run build
+    - npm run lint
+    - npm run wayfinder:check

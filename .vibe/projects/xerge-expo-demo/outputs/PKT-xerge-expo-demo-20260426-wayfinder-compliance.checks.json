@@ -1,0 +1,12 @@
+{
+  "packet_id": "PKT-xerge-expo-demo-20260426-wayfinder-compliance",
+  "evidence": "Verified",
+  "checks": [
+    "npm ci",
+    "npm run typecheck",
+    "npm run test",
+    "npm run build",
+    "npm run lint",
+    "npm run wayfinder:check"
+  ]
+}

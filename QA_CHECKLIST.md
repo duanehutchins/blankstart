@@ -23,3 +23,5 @@ Checks must be executable without network and without backend services.
 | Reset test manual | Use admin Reset Active Session | Active flow clears, leads remain |
 | Responsive test | Check laptop and tablet widths | Layout remains readable and touch-friendly |
 | Accessibility baseline | Keyboard nav through CTA, options, form, and admin buttons | Interactive controls are reachable and visibly focused |
+
+| Wayfinder check | Run `npm run wayfinder:check` | All required signposts/indexes/.vibe artifacts resolve |

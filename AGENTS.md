@@ -1,40 +1,41 @@
 # AGENTS.md
 
 <!-- wayfinder:next
-  - path: README.md
-    reason: project intent and operator-level usage
-  - path: repo_index.yaml
-    reason: machine-readable repo map
+  - path: src/AGENTS.md
+    reason: source-code boundary rules and local checks
+  - path: docs/AGENTS.md
+    reason: documentation/ADR boundary rules
+  - path: .vibe/README.md
+    reason: operational plan/packet/review artifacts
+  - path: .vibe/projects/xerge-expo-demo/plan.yaml
+    reason: active project plan and status
   - path: QA_CHECKLIST.md
-    reason: required validation steps before completion
+    reason: required manual QA checks
 -->
 
-## Setup commands
-- `npm install`
-- `npm run dev`
+## Non-negotiable repo rules
+- Do not change quiz scoring/personas/content unless explicitly requested.
+- Do not add backend/network runtime dependencies.
+- Preserve offline lead capture/export behavior.
+- Keep Wayfinder signposts valid and path-resolvable.
 
-## Build/test/lint/typecheck commands
-- `npm run build`
-- `npm run test`
-- `npm run lint`
+## Boundary policy
+- Root rules apply to all files unless overridden by deeper AGENTS.md.
+- Major boundaries are `src/`, `docs/`, and `.vibe/`.
+- Add new boundary signposts only when local execution rules differ.
+
+## Escalation rules
+- If requested behavior conflicts with existing constraints, document in `IMPLEMENTATION_NOTES.md` before diverging.
+- If a required path/signpost is missing, stop and repair signposts before feature work.
+
+## Required checks
 - `npm run typecheck`
+- `npm run test`
+- `npm run build`
+- `npm run lint`
+- `npm run wayfinder:check`
 
-## Coding constraints
-- Use React + TypeScript + Vite + Tailwind.
-- Keep logic out of UI components where practical.
-- Keep quiz content in `src/data/`.
-- Keep dependencies minimal and avoid runtime network requirements.
-
-## Documentation expectations
-- Keep root docs updated when behavior changes.
-- Update `IMPLEMENTATION_NOTES.md` for deviations and known limits.
-- Keep ADRs current for architectural decisions.
-
-## Scope rules
-- No backend or API requirement.
-- No Expo/React Native Web/AsyncStorage.
-- No service worker/PWA caching unless explicitly requested.
-
-## Wayfinder expectations
-- Preserve machine-readable wayfinder blocks in required signposts.
-- Avoid adding nested signposts unless local execution rules differ.
+## Inheritance guidance
+- `src/AGENTS.md` refines app-code constraints.
+- `docs/AGENTS.md` refines documentation/ADR requirements.
+- `.vibe/README.md` and project packet artifacts define current operational workflow.

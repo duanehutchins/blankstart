@@ -1,0 +1,18 @@
+packet_id: PKT-xerge-expo-demo-20260426-wayfinder-compliance
+generator:
+  summary: Added required root/major-boundary signposts, repo index upgrade, ADR normalization, .vibe artifacts, and mechanical checks.
+adversary:
+  review: Verified no runtime product behavior files were modified for quiz/scoring/export logic.
+visionary:
+  review: Navigation now supports locality-first startup for fresh AI contributors.
+synthesis_decision: accept
+evidence_status:
+  commands: Verified
+  compliance_report: Draft
+required_checks:
+  - npm ci
+  - npm run typecheck
+  - npm run test
+  - npm run build
+  - npm run lint
+  - npm run wayfinder:check

@@ -10,5 +10,7 @@ Expo booth operations require offline lead capture with no backend dependency.
 Persist leads and analytics in LocalStorage with schema versioning and guarded parsing.
 
 ## Consequences
-- Pro: Works offline and is simple to operate.
-- Con: Subject to browser storage availability and device-level clearing.
+Works offline and is simple to operate, but data depends on browser storage availability.
+
+## Alternatives considered
+Temporary in-memory storage (would lose data on refresh); backend API capture (breaks offline requirement).

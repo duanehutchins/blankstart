@@ -2,37 +2,40 @@
 
 <!-- wayfinder:next
   - path: AGENTS.md
-    reason: execution rules for contributors and AI agents
+    reason: repo-wide execution constraints and required checks
   - path: repo_index.yaml
-    reason: machine-readable map of repository contents
-  - path: TECH_BLUEPRINT.md
-    reason: technical architecture and implementation constraints
+    reason: machine-readable repository map and boundary metadata
+  - path: src/README.md
+    reason: application architecture and source navigation
+  - path: docs/README.md
+    reason: docs and ADR navigation
+  - path: .vibe/README.md
+    reason: active Wayfinder operational artifacts
 -->
 
 ## What this repo is
-A booth-ready offline-first React web demo for Xerge called **“Are You Smarter Than an AI CTO?”**.
+Offline-first React + TypeScript + Vite expo demo for Xerge.
 
 ## Why it exists
-To attract expo visitors, teach Xerge's value proposition quickly, and capture consented leads locally for follow-up.
+Teach Xerge positioning fast at booths and capture consented leads locally for export.
 
 ## Run locally
-1. `npm install`
+1. `npm ci`
 2. `npm run dev`
-3. Open the local Vite URL shown in terminal.
 
-## Build
+## Build and checks
+- `npm run typecheck`
+- `npm run test`
 - `npm run build`
-- `npm run preview` (optional local check)
+- `npm run lint`
+- `npm run wayfinder:check`
 
-## Expo usage
-- Launch app and leave on idle screen between visitors.
-- Visitor flow: start challenge → 5 questions → persona result → lead capture → thank-you.
-- App auto-resets after thank-you and on inactivity.
-
-## Admin/export access
-- Visit `/admin` directly, or press `Ctrl+Shift+A` from the challenge screen.
-- Export leads via CSV or JSON.
-- Clear leads only after explicit confirmation.
-
-## Docs location
-Core blueprints and operations docs live at repo root, with ADRs under `docs/adrs/`.
+## Top-level map
+- `AGENTS.md` — global execution rules and inheritance model.
+- `repo_index.yaml` — machine-readable index of boundaries/modules.
+- `src/README.md` — app source boundary and local signposts.
+- `docs/README.md` — blueprints, runbooks, ADRs.
+- `.vibe/README.md` — active plan/packet/review/compliance artifacts.
+- `QA_CHECKLIST.md` — manual verification matrix.
+- `EXPO_RUNBOOK.md` — booth operator workflow.
+- `TECH_BLUEPRINT.md` — architecture and constraints.

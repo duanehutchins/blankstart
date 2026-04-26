@@ -1,0 +1,4 @@
+project_id: xerge-expo-demo
+name: Xerge Expo Demo
+plan_path: .vibe/projects/xerge-expo-demo/plan.yaml
+status: active
