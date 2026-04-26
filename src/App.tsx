@@ -86,12 +86,16 @@ function App() {
     window.addEventListener('mousemove', refreshTimer);
     window.addEventListener('keydown', refreshTimer);
     window.addEventListener('click', refreshTimer);
+    window.addEventListener('pointerdown', refreshTimer);
+    window.addEventListener('touchstart', refreshTimer);
 
     return () => {
       window.clearTimeout(inactivityTimer);
       window.removeEventListener('mousemove', refreshTimer);
       window.removeEventListener('keydown', refreshTimer);
       window.removeEventListener('click', refreshTimer);
+      window.removeEventListener('pointerdown', refreshTimer);
+      window.removeEventListener('touchstart', refreshTimer);
     };
   }, [location.pathname, hardResetToIdle]);
 
