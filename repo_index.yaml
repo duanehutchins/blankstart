@@ -1,0 +1,21 @@
+repo:
+  name: xerge-ai-cto-demo
+  purpose: Offline-first expo demo for Xerge lead capture and education
+  primary_stack:
+    - React
+    - TypeScript
+    - Vite
+    - Tailwind CSS
+  key_paths:
+    - path: src/
+      description: Application source code
+    - path: src/data/
+      description: Quiz questions, personas, and copy
+    - path: src/lib/
+      description: Storage, export, validation, and utility logic
+    - path: src/features/quiz/
+      description: Deterministic quiz scoring
+    - path: docs/adrs/
+      description: Architecture decision records
+    - path: QA_CHECKLIST.md
+      description: Manual verification matrix
