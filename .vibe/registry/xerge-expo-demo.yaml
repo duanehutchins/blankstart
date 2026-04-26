@@ -1,0 +1,10 @@
+project_id: xerge-expo-demo
+owner: duanehutchins
+status: active
+source_roots:
+  - src/
+  - docs/
+  - .vibe/
+active_packets:
+  - PKT-xerge-expo-demo-20260426-wayfinder-compliance
+plan_path: .vibe/projects/xerge-expo-demo/plan.yaml

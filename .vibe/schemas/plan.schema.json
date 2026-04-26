@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "required": [
+    "project_id",
+    "intent",
+    "packet_plan"
+  ]
+}

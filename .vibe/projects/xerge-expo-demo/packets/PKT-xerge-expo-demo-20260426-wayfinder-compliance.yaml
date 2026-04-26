@@ -1,0 +1,61 @@
+packet_id: PKT-xerge-expo-demo-20260426-wayfinder-compliance
+project_id: xerge-expo-demo
+title: MVP Wayfinder compliance retrofit
+status: review
+complexity_tier: Tier 3
+intent: Add required signposts, indexes, .vibe artifacts, and mechanical validation without changing app behavior.
+must_not:
+  - Change quiz scoring/persona logic
+  - Change lead persistence/export behavior
+read_first:
+  - README.md
+  - AGENTS.md
+  - repo_index.yaml
+allowed_read_paths:
+  - README.md
+  - AGENTS.md
+  - src/
+  - docs/
+  - .vibe/
+allowed_write_paths:
+  - README.md
+  - AGENTS.md
+  - repo_index.yaml
+  - src/README.md
+  - src/AGENTS.md
+  - docs/
+  - .vibe/
+  - scripts/check-wayfinder.mjs
+  - .github/workflows/ci.yml
+forbidden_paths:
+  - src/data/questions.ts
+  - src/data/personas.ts
+  - src/features/quiz/scoring.ts
+local_context_files:
+  - TECH_BLUEPRINT.md
+  - IMPLEMENTATION_NOTES.md
+constraints:
+  - Keep artifacts minimal and useful
+  - Validate wayfinder pointers mechanically
+acceptance_criteria:
+  - All required signposts exist and resolve
+  - repo_index.yaml includes required module metadata
+  - .vibe artifacts and schemas exist
+  - CI runs wayfinder check
+commands_to_run:
+  - npm ci
+  - npm run typecheck
+  - npm run test
+  - npm run build
+  - npm run lint
+  - npm run wayfinder:check
+docs_to_update:
+  - README.md
+  - AGENTS.md
+  - TECH_BLUEPRINT.md
+  - IMPLEMENTATION_NOTES.md
+  - QA_CHECKLIST.md
+  - repo_index.yaml
+rollback_notes: Revert signpost/doc/.vibe changes as a single packet if validation fails.
+completion_definition: Wayfinder checker and CI pass with unchanged product behavior.
+max_context_tokens: 4000

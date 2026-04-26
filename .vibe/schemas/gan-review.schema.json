@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": [
+    "packet_id",
+    "generator",
+    "adversary",
+    "visionary",
+    "synthesis_decision",
+    "evidence_status",
+    "required_checks"
+  ]
+}

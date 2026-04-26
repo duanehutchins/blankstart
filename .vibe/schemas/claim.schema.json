@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "required": [
+    "claim_id",
+    "status",
+    "evidence"
+  ]
+}

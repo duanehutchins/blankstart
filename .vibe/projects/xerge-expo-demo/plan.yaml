@@ -1,0 +1,20 @@
+project_id: xerge-expo-demo
+intent: Achieve MVP Wayfinder compliance without changing expo app product behavior.
+non_goals:
+  - Do not change quiz/scoring/persona behavior
+  - Do not add backend dependencies
+deliverables:
+  - Relative-path signpost compliance
+  - Mechanical wayfinder validation
+  - .vibe registry/plan/packet/review completeness
+dependencies:
+  - repo_index.yaml
+  - scripts/check-wayfinder.mjs
+packet_plan:
+  - packet_id: PKT-xerge-expo-demo-20260426-wayfinder-compliance
+    scope: Wayfinder compliance blockers only
+gan_policy:
+  generator: required
+  adversary: required
+  visionary: required
+status: review

@@ -1,0 +1,3 @@
+version: 1
+default_project: xerge-expo-demo
+registry_index: .vibe/registry/_index.yaml

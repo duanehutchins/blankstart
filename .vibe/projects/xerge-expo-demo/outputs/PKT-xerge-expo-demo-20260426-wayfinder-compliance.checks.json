@@ -1,0 +1,36 @@
+{
+  "packet_id": "PKT-xerge-expo-demo-20260426-wayfinder-compliance",
+  "evidence": "Verified",
+  "commands": [
+    {
+      "cmd": "npm ci",
+      "result": "pass",
+      "summary": "added 284 packages; found 0 vulnerabilities"
+    },
+    {
+      "cmd": "npm run typecheck",
+      "result": "pass",
+      "summary": "tsc --noEmit completed without errors"
+    },
+    {
+      "cmd": "npm run test",
+      "result": "pass",
+      "summary": "Vitest: 6 files passed, 10 tests passed"
+    },
+    {
+      "cmd": "npm run build",
+      "result": "pass",
+      "summary": "Vite production build completed successfully"
+    },
+    {
+      "cmd": "npm run lint",
+      "result": "pass",
+      "summary": "eslint . completed without errors"
+    },
+    {
+      "cmd": "npm run wayfinder:check",
+      "result": "pass",
+      "summary": "Wayfinder check: PASS"
+    }
+  ]
+}
