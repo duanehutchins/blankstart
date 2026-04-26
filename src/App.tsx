@@ -192,7 +192,6 @@ function App() {
           <span className="font-semibold text-cyan-300">Xerge Expo Demo</span>
           <div className="flex items-center gap-4">
             <Link to="/" className="text-slate-300 hover:text-white">Challenge</Link>
-            <Link to="/admin" className="text-slate-300 hover:text-white">Admin</Link>
           </div>
         </div>
       </header>

@@ -22,7 +22,6 @@ export function IdleScreen({ onStart }: IdleScreenProps) {
           Start Challenge
         </button>
       </div>
-      <p className="text-sm text-slate-400">Tip: press <kbd className="rounded bg-slate-800 px-1 py-0.5">Ctrl+Shift+A</kbd> to open admin/export.</p>
     </main>
   );
 }

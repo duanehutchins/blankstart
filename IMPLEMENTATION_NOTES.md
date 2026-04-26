@@ -16,7 +16,7 @@ Record deviations before implementing them.
 - Used React + TypeScript + Vite + Tailwind per approved constraints.
 - Implemented deterministic scoring with score-range persona mapping.
 - Used LocalStorage snapshot with schema versioning and corruption fallback for leads and analytics.
-- Added hidden admin route `/admin` and keyboard shortcut (`A`).
+- Added hidden admin route `/admin` and keyboard shortcut (`Ctrl+Shift+A`).
 - Removed mid-quiz resume persistence so refresh always returns to idle state for booth reliability.
 - Removed legacy binary hero asset (`src/assets/hero.png`) to keep diffs and patching reliable in the Codex workflow.
 - Moved visible countdown state into `ThankYouScreen` with interval cleanup.
