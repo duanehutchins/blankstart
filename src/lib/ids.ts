@@ -1,5 +1,5 @@
 /**
- * Provides deterministic ID helper for lead and session records.
+ * Provides locally unique ID helpers for lead and session records.
  */
 
 /** Creates a simple unique identifier suitable for local-only records. */

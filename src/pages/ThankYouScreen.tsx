@@ -12,6 +12,7 @@ export function ThankYouScreen({ resetAfterSeconds, onResetNow }: ThankYouScreen
   const [secondsRemaining, setSecondsRemaining] = useState(resetAfterSeconds);
 
   useEffect(() => {
+    setSecondsRemaining(resetAfterSeconds);
     const interval = window.setInterval(() => {
       setSecondsRemaining((current) => {
         if (current <= 1) {
