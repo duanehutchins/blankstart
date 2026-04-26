@@ -1,20 +1,26 @@
 /**
  * Provides booth operator controls for export, reset, and lightweight storage diagnostics.
  */
+import { useEffect, useState } from 'react';
 import type { Lead, QuizSession } from '../types';
-import type { StorageStatus } from '../lib/storage';
+import { getStorageStatus, type StorageStatus } from '../lib/storage';
 
 interface AdminScreenProps {
   leads: Lead[];
   sessions: QuizSession[];
-  storageStatus: StorageStatus;
   onExportCsv: () => void;
   onExportJson: () => void;
   onClearLeads: () => void;
   onResetActive: () => void;
 }
 
-export function AdminScreen({ leads, sessions, storageStatus, onExportCsv, onExportJson, onClearLeads, onResetActive }: AdminScreenProps) {
+export function AdminScreen({ leads, sessions, onExportCsv, onExportJson, onClearLeads, onResetActive }: AdminScreenProps) {
+  const [storageStatus, setStorageStatus] = useState<StorageStatus>({ available: true, message: 'Checking…' });
+
+  useEffect(() => {
+    setStorageStatus(getStorageStatus());
+  }, []);
+
   const avgScore = sessions.length === 0 ? 0 : Math.round((sessions.reduce((sum, s) => sum + s.totalScore, 0) / sessions.length) * 10) / 10;
 
   return (

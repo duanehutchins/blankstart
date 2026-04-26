@@ -26,8 +26,8 @@ export function ResultScreen({ score, persona, explanations, onContinue }: Resul
       <section className="rounded-2xl border border-slate-700 bg-slate-900/80 p-8">
         <h2 className="text-xl font-semibold text-white">What your answers teach</h2>
         <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-300">
-          {explanations.map((text) => (
-            <li key={text}>{text}</li>
+          {explanations.map((text, i) => (
+            <li key={i}>{text}</li>
           ))}
         </ul>
       </section>

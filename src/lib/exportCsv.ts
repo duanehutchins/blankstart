@@ -6,7 +6,7 @@ import { timestampForFile } from './time';
 
 function escapeCsvCell(value: string): string {
   const escaped = value.replace(/"/g, '""');
-  return /[",\n]/.test(escaped) ? `"${escaped}"` : escaped;
+  return /[",\n\r]/.test(escaped) ? `"${escaped}"` : escaped;
 }
 
 /** Builds a CSV document from lead records with deterministic column ordering. */
@@ -42,6 +42,8 @@ export function downloadLeadsCsv(leads: Lead[]): void {
   const anchor = document.createElement('a');
   anchor.href = url;
   anchor.download = `xerge-leads-${timestampForFile()}.csv`;
+  document.body.appendChild(anchor);
   anchor.click();
-  URL.revokeObjectURL(url);
+  document.body.removeChild(anchor);
+  setTimeout(() => URL.revokeObjectURL(url), 10_000);
 }

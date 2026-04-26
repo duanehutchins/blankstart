@@ -7,7 +7,7 @@ import { questions } from './data/questions';
 import { personas } from './data/personas';
 import { CONSENT_VERSION, INACTIVITY_SECONDS, RESET_SECONDS } from './data/copy';
 import { buildAnswer, computeTotalScore, mapScoreToPersona } from './features/quiz/scoring';
-import { appendCompletedSession, appendLead, clearLeads, getStorageStatus, loadSnapshot } from './lib/storage';
+import { appendCompletedSession, appendLead, clearLeads, loadSnapshot } from './lib/storage';
 import { createId } from './lib/ids';
 import { nowIso } from './lib/time';
 import { downloadLeadsCsv } from './lib/exportCsv';
@@ -221,7 +221,6 @@ function App() {
             <AdminScreen
               leads={leads}
               sessions={sessions}
-              storageStatus={getStorageStatus()}
               onExportCsv={() => downloadLeadsCsv(leads)}
               onExportJson={() => downloadLeadsJson(leads)}
               onClearLeads={clearAllLeads}

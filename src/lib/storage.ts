@@ -20,10 +20,12 @@ export interface StorageLike {
 
 function resolveStorage(override?: StorageLike): StorageLike | null {
   if (override) return override;
-  if (typeof window === 'undefined' || !window.localStorage) {
+  if (typeof window === 'undefined') return null;
+  try {
+    return window.localStorage ?? null;
+  } catch {
     return null;
   }
-  return window.localStorage;
 }
 
 function defaultSnapshot(): StorageSnapshot {

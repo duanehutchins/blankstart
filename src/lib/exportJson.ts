@@ -23,6 +23,8 @@ export function downloadLeadsJson(leads: Lead[]): void {
   const anchor = document.createElement('a');
   anchor.href = url;
   anchor.download = `xerge-leads-${timestampForFile()}.json`;
+  document.body.appendChild(anchor);
   anchor.click();
-  URL.revokeObjectURL(url);
+  document.body.removeChild(anchor);
+  setTimeout(() => URL.revokeObjectURL(url), 10_000);
 }
