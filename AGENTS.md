@@ -1,12 +1,12 @@
 # AGENTS.md
 
 <!-- wayfinder:next
-- path: README.md
-  reason: project intent and operator-level usage
-- path: repo_index.yaml
-  reason: machine-readable repo map
-- path: QA_CHECKLIST.md
-  reason: required validation steps before completion
+  - path: README.md
+    reason: project intent and operator-level usage
+  - path: repo_index.yaml
+    reason: machine-readable repo map
+  - path: QA_CHECKLIST.md
+    reason: required validation steps before completion
 -->
 
 ## Setup commands

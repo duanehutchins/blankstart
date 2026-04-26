@@ -1,12 +1,12 @@
 # Xerge Expo Demo — Are You Smarter Than an AI CTO?
 
 <!-- wayfinder:next
-- path: AGENTS.md
-  reason: execution rules for contributors and AI agents
-- path: repo_index.yaml
-  reason: machine-readable map of repository contents
-- path: TECH_BLUEPRINT.md
-  reason: technical architecture and implementation constraints
+  - path: AGENTS.md
+    reason: execution rules for contributors and AI agents
+  - path: repo_index.yaml
+    reason: machine-readable map of repository contents
+  - path: TECH_BLUEPRINT.md
+    reason: technical architecture and implementation constraints
 -->
 
 ## What this repo is
@@ -30,7 +30,7 @@ To attract expo visitors, teach Xerge's value proposition quickly, and capture c
 - App auto-resets after thank-you and on inactivity.
 
 ## Admin/export access
-- Visit `/admin` directly, or press `A` from the challenge screen.
+- Visit `/admin` directly, or press `Ctrl+Shift+A` from the challenge screen.
 - Export leads via CSV or JSON.
 - Clear leads only after explicit confirmation.
 

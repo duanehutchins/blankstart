@@ -25,7 +25,7 @@ Open local URL and keep device on root challenge route (`/`).
 - Manual reset available via admin screen.
 
 ## Access admin/export
-- Go to `/admin`, or press `A`.
+- Go to `/admin`, or press `Ctrl+Shift+A`.
 
 ## Export leads
 - In admin, click Export CSV or Export JSON.

@@ -47,7 +47,15 @@ function App() {
 
   useEffect(() => {
     const openAdminShortcut = (event: KeyboardEvent) => {
-      if (event.key.toLowerCase() === 'a') {
+      const target = event.target as HTMLElement | null;
+      const tagName = target?.tagName.toLowerCase();
+      const isFormField = tagName === 'input' || tagName === 'textarea' || tagName === 'select';
+      const isEditable = target?.isContentEditable ?? false;
+
+      if (isFormField || isEditable) return;
+
+      if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'a') {
+        event.preventDefault();
         navigate('/admin');
       }
     };
