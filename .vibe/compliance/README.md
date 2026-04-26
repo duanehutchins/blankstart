@@ -1,9 +1,9 @@
 # .vibe/compliance/README.md
 
 <!-- wayfinder:next
-  - path: .vibe/compliance/reports/wayfinder-compliance.md
+  - path: reports/wayfinder-compliance.md
     reason: latest compliance status
-  - path: scripts/check-wayfinder.mjs
+  - path: ../../scripts/check-wayfinder.mjs
     reason: mechanical compliance validator
 -->
 

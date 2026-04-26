@@ -1,11 +1,11 @@
 # docs/AGENTS.md
 
 <!-- wayfinder:next
-  - path: docs/README.md
+  - path: README.md
     reason: docs boundary overview
-  - path: docs/adr/
+  - path: adr/
     reason: canonical ADR directory
-  - path: IMPLEMENTATION_NOTES.md
+  - path: ../IMPLEMENTATION_NOTES.md
     reason: implementation deviations and verification
 -->
 

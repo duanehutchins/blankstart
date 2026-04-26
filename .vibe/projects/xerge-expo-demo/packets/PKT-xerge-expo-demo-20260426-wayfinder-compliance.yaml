@@ -1,8 +1,8 @@
 packet_id: PKT-xerge-expo-demo-20260426-wayfinder-compliance
 project_id: xerge-expo-demo
 title: MVP Wayfinder compliance retrofit
-status: completed
-complexity_tier: mvp
+status: review
+complexity_tier: Tier 3
 intent: Add required signposts, indexes, .vibe artifacts, and mechanical validation without changing app behavior.
 must_not:
   - Change quiz scoring/persona logic

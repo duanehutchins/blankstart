@@ -1,11 +1,11 @@
 # .vibe/registry/README.md
 
 <!-- wayfinder:next
-  - path: .vibe/registry/_index.yaml
+  - path: _index.yaml
     reason: project registry index
-  - path: .vibe/registry/xerge-expo-demo.yaml
+  - path: xerge-expo-demo.yaml
     reason: active project registry record
-  - path: .vibe/projects/xerge-expo-demo/plan.yaml
+  - path: ../projects/xerge-expo-demo/plan.yaml
     reason: referenced active plan
 -->
 

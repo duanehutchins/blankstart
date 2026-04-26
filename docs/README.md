@@ -1,11 +1,11 @@
 # docs/README.md
 
 <!-- wayfinder:next
-  - path: docs/AGENTS.md
+  - path: AGENTS.md
     reason: docs/ADR boundary constraints
-  - path: docs/adr/0001-use-localstorage-for-offline-lead-capture.md
+  - path: adr/0001-use-localstorage-for-offline-lead-capture.md
     reason: ADR entry point
-  - path: TECH_BLUEPRINT.md
+  - path: ../TECH_BLUEPRINT.md
     reason: architecture reference for docs consistency
 -->
 

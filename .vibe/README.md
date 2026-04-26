@@ -1,13 +1,13 @@
 # .vibe/README.md
 
 <!-- wayfinder:next
-  - path: .vibe/config.yaml
+  - path: config.yaml
     reason: operational layer configuration
-  - path: .vibe/registry/_index.yaml
+  - path: registry/_index.yaml
     reason: registered projects index
-  - path: .vibe/projects/xerge-expo-demo/plan.yaml
+  - path: projects/xerge-expo-demo/plan.yaml
     reason: active project plan
-  - path: .vibe/compliance/reports/wayfinder-compliance.md
+  - path: compliance/reports/wayfinder-compliance.md
     reason: current compliance status
 -->
 

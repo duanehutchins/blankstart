@@ -1,13 +1,13 @@
 # src/README.md
 
 <!-- wayfinder:next
-  - path: src/AGENTS.md
+  - path: AGENTS.md
     reason: local source boundary constraints
-  - path: src/App.tsx
+  - path: App.tsx
     reason: main flow orchestration and routing
-  - path: src/data/questions.ts
+  - path: data/questions.ts
     reason: quiz content authority
-  - path: src/lib/storage.ts
+  - path: lib/storage.ts
     reason: persistence authority
 -->
 

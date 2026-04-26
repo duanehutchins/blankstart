@@ -1,11 +1,11 @@
 # src/AGENTS.md
 
 <!-- wayfinder:next
-  - path: src/README.md
+  - path: README.md
     reason: source boundary map and authoritative files
-  - path: QA_CHECKLIST.md
+  - path: ../QA_CHECKLIST.md
     reason: validation expectations after app changes
-  - path: TECH_BLUEPRINT.md
+  - path: ../TECH_BLUEPRINT.md
     reason: architecture constraints
 -->
 
