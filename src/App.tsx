@@ -35,9 +35,10 @@ const initialState: ActiveState = {
 };
 
 function App() {
+  const initialSnapshot = useMemo(() => loadSnapshot(), []);
   const [active, setActive] = useState<ActiveState>(initialState);
-  const [leads, setLeads] = useState(() => loadSnapshot().leads);
-  const [sessions, setSessions] = useState<QuizSession[]>(() => loadSnapshot().analytics.completedSessions);
+  const [leads, setLeads] = useState(() => initialSnapshot.leads);
+  const [sessions, setSessions] = useState<QuizSession[]>(() => initialSnapshot.analytics.completedSessions);
   const [leadSaveError, setLeadSaveError] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();

@@ -9,9 +9,16 @@ interface ProgressBarProps {
 export function ProgressBar({ current, total }: ProgressBarProps) {
   const percent = Math.round((current / total) * 100);
   return (
-    <div aria-label={`Question ${current} of ${total}`} className="w-full">
+    <div className="w-full">
       <div className="mb-2 text-sm font-medium text-slate-300">Question {current} of {total}</div>
-      <div className="h-3 w-full overflow-hidden rounded-full bg-slate-700">
+      <div
+        aria-label={`Question ${current} of ${total}`}
+        aria-valuemax={total}
+        aria-valuemin={0}
+        aria-valuenow={current}
+        className="h-3 w-full overflow-hidden rounded-full bg-slate-700"
+        role="progressbar"
+      >
         <div className="h-full rounded-full bg-cyan-400 transition-all" style={{ width: `${percent}%` }} />
       </div>
     </div>
