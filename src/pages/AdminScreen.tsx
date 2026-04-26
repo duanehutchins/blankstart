@@ -1,7 +1,7 @@
 /**
  * Provides booth operator controls for export, reset, and lightweight storage diagnostics.
  */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { Lead, QuizSession } from '../types';
 import { getStorageStatus, type StorageStatus } from '../lib/storage';
 
@@ -15,11 +15,7 @@ interface AdminScreenProps {
 }
 
 export function AdminScreen({ leads, sessions, onExportCsv, onExportJson, onClearLeads, onResetActive }: AdminScreenProps) {
-  const [storageStatus, setStorageStatus] = useState<StorageStatus>({ available: true, message: 'Checking…' });
-
-  useEffect(() => {
-    setStorageStatus(getStorageStatus());
-  }, []);
+  const [storageStatus] = useState<StorageStatus>(() => getStorageStatus());
 
   const avgScore = sessions.length === 0 ? 0 : Math.round((sessions.reduce((sum, s) => sum + s.totalScore, 0) / sessions.length) * 10) / 10;
 

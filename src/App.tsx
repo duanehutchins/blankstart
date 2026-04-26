@@ -36,8 +36,13 @@ const initialState: ActiveState = {
 
 function App() {
   const [active, setActive] = useState<ActiveState>(initialState);
-  const [leads, setLeads] = useState(() => loadSnapshot().leads);
-  const [sessions, setSessions] = useState<QuizSession[]>(() => loadSnapshot().analytics.completedSessions);
+  // Load storage snapshot once to seed both leads and sessions state:
+  const [initialData] = useState(() => {
+    const snap = loadSnapshot();
+    return { leads: snap.leads, sessions: snap.analytics.completedSessions };
+  });
+  const [leads, setLeads] = useState<Lead[]>(initialData.leads);
+  const [sessions, setSessions] = useState<QuizSession[]>(initialData.sessions);
   const [leadSaveError, setLeadSaveError] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();

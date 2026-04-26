@@ -1,7 +1,7 @@
 /**
  * Collects consented lead details and enforces required fields before submission.
  */
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { CONSENT_TEXT } from '../data/copy';
 import { validateLeadInput } from '../lib/validation';
 
@@ -30,7 +30,7 @@ export function LeadCaptureScreen({ onSubmit, submitError }: LeadCaptureScreenPr
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const nextErrors = validateLeadInput({ name: form.name, email: form.email, consent: form.consent });
     setErrors(nextErrors);
