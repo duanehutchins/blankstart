@@ -16,9 +16,10 @@ interface LeadCapturePayload {
 
 interface LeadCaptureScreenProps {
   onSubmit: (payload: LeadCapturePayload) => void;
+  submitError?: string | null;
 }
 
-export function LeadCaptureScreen({ onSubmit }: LeadCaptureScreenProps) {
+export function LeadCaptureScreen({ onSubmit, submitError }: LeadCaptureScreenProps) {
   const [form, setForm] = useState<LeadCapturePayload>({
     name: '',
     email: '',
@@ -83,6 +84,8 @@ export function LeadCaptureScreen({ onSubmit }: LeadCaptureScreenProps) {
           </label>
           {errors.consent ? <span className="text-red-300">{errors.consent}</span> : null}
         </div>
+
+        {submitError ? <p className="mt-4 text-sm font-medium text-red-300">{submitError}</p> : null}
 
         <button
           type="submit"

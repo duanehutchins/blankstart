@@ -25,6 +25,38 @@ describe('storage', () => {
     expect(snapshot.analytics.completedSessions).toHaveLength(0);
   });
 
+
+  it('returns false when appendLead cannot write to storage', () => {
+    const store: StorageLike = {
+      getItem() {
+        return null;
+      },
+      setItem() {
+        throw new Error('quota exceeded');
+      },
+      removeItem() {
+        // no-op
+      },
+    };
+
+    const saved = appendLead(
+      {
+        id: 'lead-2',
+        name: 'Casey',
+        email: 'casey@example.com',
+        consent: true,
+        consentVersion: 'v1',
+        capturedAt: '2026-01-01T00:00:00.000Z',
+        personaId: 'p1',
+        personaName: 'Persona',
+        score: 21,
+      },
+      store,
+    );
+
+    expect(saved).toBe(false);
+  });
+
   it('appends and clears leads', () => {
     const store = createMemoryStorage();
     appendLead(

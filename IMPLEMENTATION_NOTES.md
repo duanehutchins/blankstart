@@ -20,6 +20,8 @@ Record deviations before implementing them.
 - Removed mid-quiz resume persistence so refresh always returns to idle state for booth reliability.
 - Removed legacy binary hero asset (`src/assets/hero.png`) to keep diffs and patching reliable in the Codex workflow.
 - Moved visible countdown state into `ThankYouScreen` with interval cleanup.
+- Session analytics persistence is treated as non-blocking; failures log a warning and do not block lead capture flow.
+- Lead submission success UI is only shown after verified LocalStorage persistence succeeds.
 
 ## Deviations from plan
 - Disabled active session persistence intentionally to simplify booth behavior and avoid stale-session recovery issues.

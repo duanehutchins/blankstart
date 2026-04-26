@@ -4,6 +4,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { questions } from './data/questions';
+import { personas } from './data/personas';
 import { CONSENT_VERSION, INACTIVITY_SECONDS, RESET_SECONDS } from './data/copy';
 import { buildAnswer, computeTotalScore, mapScoreToPersona } from './features/quiz/scoring';
 import { appendCompletedSession, appendLead, clearLeads, getStorageStatus, loadSnapshot } from './lib/storage';
@@ -37,10 +38,12 @@ function App() {
   const [active, setActive] = useState<ActiveState>(initialState);
   const [leads, setLeads] = useState(() => loadSnapshot().leads);
   const [sessions, setSessions] = useState<QuizSession[]>(() => loadSnapshot().analytics.completedSessions);
+  const [leadSaveError, setLeadSaveError] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
   const hardResetToIdle = useCallback(() => {
+    setLeadSaveError(null);
     setActive({ ...initialState, startedAt: nowIso() });
     navigate('/');
   }, [navigate]);
@@ -48,7 +51,7 @@ function App() {
   useEffect(() => {
     const openAdminShortcut = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
-      const tagName = target?.tagName.toLowerCase();
+      const tagName = target?.tagName?.toLowerCase();
       const isFormField = tagName === 'input' || tagName === 'textarea' || tagName === 'select';
       const isEditable = target?.isContentEditable ?? false;
 
@@ -100,9 +103,10 @@ function App() {
   }, [active.screen, hardResetToIdle]);
 
   const totalScore = useMemo(() => computeTotalScore(active.answers), [active.answers]);
-  const persona = useMemo(() => mapScoreToPersona(totalScore), [totalScore]);
+  const persona = useMemo(() => (active.answers.length === questions.length ? mapScoreToPersona(totalScore) : personas[0]), [active.answers.length, totalScore]);
 
   const startChallenge = () => {
+    setLeadSaveError(null);
     setActive({ screen: 'quiz', quizIndex: 0, answers: [], startedAt: nowIso() });
     navigate('/');
   };
@@ -126,8 +130,12 @@ function App() {
         totalScore: score,
         personaId: resolvedPersona.id,
       };
-      appendCompletedSession(completedSession);
-      setSessions((current) => [...current, completedSession]);
+      const analyticsSaved = appendCompletedSession(completedSession);
+      if (analyticsSaved) {
+        setSessions((current) => [...current, completedSession]);
+      } else {
+        console.warn('Session analytics could not be persisted. Lead capture flow remains available.');
+      }
       setActive((current) => ({ ...current, answers: nextAnswers, quizIndex: nextIndex, screen: 'result' }));
       return;
     }
@@ -151,7 +159,13 @@ function App() {
       score: totalScore,
     };
 
-    appendLead(lead);
+    const saved = appendLead(lead);
+    if (!saved) {
+      setLeadSaveError('We couldn’t save your info on this device. Please try again or ask booth staff to capture it manually.');
+      return;
+    }
+
+    setLeadSaveError(null);
     setLeads((current) => [...current, lead]);
     setActive((current) => ({ ...current, screen: 'thankyou' }));
   };
@@ -177,11 +191,14 @@ function App() {
           score={totalScore}
           persona={persona}
           explanations={questions.map((question) => question.explanation)}
-          onContinue={() => setActive((current) => ({ ...current, screen: 'lead' }))}
+          onContinue={() => {
+            setLeadSaveError(null);
+            setActive((current) => ({ ...current, screen: 'lead' }));
+          }}
         />
       );
     }
-    if (active.screen === 'lead') return <LeadCaptureScreen onSubmit={submitLead} />;
+    if (active.screen === 'lead') return <LeadCaptureScreen onSubmit={submitLead} submitError={leadSaveError} />;
     return <ThankYouScreen resetAfterSeconds={RESET_SECONDS} onResetNow={hardResetToIdle} />;
   };
 
