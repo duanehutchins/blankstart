@@ -6,7 +6,7 @@ import { timestampForFile } from './time';
 
 function escapeCsvCell(value: string): string {
   const escaped = value.replace(/"/g, '""');
-  return /[",\n]/.test(escaped) ? `"${escaped}"` : escaped;
+  return /[",\n\r]/.test(escaped) ? `"${escaped}"` : escaped;
 }
 
 /** Builds a CSV document from lead records with deterministic column ordering. */
